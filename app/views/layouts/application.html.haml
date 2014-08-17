@@ -5,5 +5,12 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    %meta{:name=>"description", :content=> "Read only the most relevant, informative, and engaging books as recommended by professors, thought leaders, and other luminaries"}
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
   %body
-    = yield
+    .container
+      = render "layouts/header"    
+    .container
+      .content
+        = yield
+    = render "layouts/footer"

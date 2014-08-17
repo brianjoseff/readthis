@@ -1,0 +1,37 @@
+%nav.navbar.nav-area.navbar-default.navbar-fixed-top{role: "navigation"}
+  .container
+    .row
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle{ type: "button", "data-toggle" => "collapse", "data-target" => "#wayfaring_nav"}
+          / %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        .header-logo
+          %h3.pull-left #{link_to "ReadThis", root_path, :class => "header-title"}  
+      / Collect the nav links, forms, and other content for toggling
+      #wayfaring_nav.collapse.navbar-collapse
+        %ul.nav.navbar-nav 
+          / %ul#nav_pill_section.nav.nav-pills.navbar-right.colored-pills 
+          /%li{:class => "#{'active' if current_page?(root_path)} smoothScroll"}=link_to "Home", root_path
+          %li{:class => "#{'active' if current_page?(about_path)}"}=link_to "About", about_path
+
+          / 
+          / -if user_signed_in?
+          /   %li
+          /     =link_to "Sign out", destroy_user_session_path, :method => :delete
+          / -else  
+          /   %li{:class => "#{'active' if current_page?(about_path)} dropdown"}
+          /     %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}        
+          /       Join the Rumpus
+          /       %b.caret
+          /     %ul.dropdown-menu
+          /       %li
+          /         =link_to "Sign Up", access_levels_path
+          /       / %li
+          /       /   = link_to "Sign Up", new_user_registration_path
+          /       %li
+          /         =link_to "Sign In", new_user_session_path
+          / 
+

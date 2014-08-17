@@ -1,6 +1,6 @@
 ReadThis::Application.routes.draw do
-  get "pages/index"
-  get "pages/about"
+  
+  match '/about', to: "pages#about", via: :get
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
