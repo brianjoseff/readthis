@@ -1,4 +1,5 @@
 .form-group.book-rec-form
+  %h4 #{@book_list.book_recommendations.count}
   /=f.fields_for :book_recommendations do |br|
   =f.fields_for :books do |b|
     .form-group

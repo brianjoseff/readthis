@@ -10,10 +10,12 @@ module ApplicationHelper
   end
   
   def link_to_add_book_list_fields(name, f, association, css_class)
-    new_object = f.object.send(association).klass.new
-    id = new_object.object_id
-    fields = f.fields_for(association, new_object, child_index: id) do |builder|
-      render(association.to_s.singularize + "_fields", f: builder)
+    bookrec = f.object.book_recommendations.build
+    bookrec.build_book
+    
+    id = bookrec.object_id
+    fields = f.fields_for(:book_recommendations, bookrec, child_index: id) do |builder|
+      render("book_recommendation_fields", f: builder)
     end
     link_to(name, '#', class: "add_fields" + " " + css_class, data: {id: id, fields: fields.gsub("\n", "")})
   end
