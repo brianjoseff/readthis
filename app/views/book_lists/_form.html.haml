@@ -13,10 +13,22 @@
 
   .row
     .col-lg-5
-      .book-rec-form-container
+      / .book-rec-form-container
+      /   %h4 1.
+      /   .form-group.book-rec-form
+      /     =f.fields_for :book_recommendations do |br|
+      /       =br.fields_for :books do |b|
+      /         .form-group
+      /           = b.label :title, class: "control-label"
+      /           = b.text_field :title, autofocus: true, type: "text", class: "form-control", placeholder: "On the Origin of Species"
+      /       .form-group
+      /         = br.label :blurb, type: "text", class: "control-label"
+      /         = br.text_area :blurb, autofocus: true, type: "text", :rows => "5", class: "form-control", placeholder: "Charles Darwin's seminal work..."
+      /       = link_to "remove", '#', class: "remove_fields"
+      =f.fields_for :book_recommendations do |br|
         %h4 1.
-        .form-group.book-rec-form
-          =f.fields_for :book_recommendations do |br|
+        .book-rec-form-container
+          .form-group.book-rec-form
             =br.fields_for :books do |b|
               .form-group
                 = b.label :title, class: "control-label"
@@ -25,7 +37,8 @@
               = br.label :blurb, type: "text", class: "control-label"
               = br.text_area :blurb, autofocus: true, type: "text", :rows => "5", class: "form-control", placeholder: "Charles Darwin's seminal work..."
             = link_to "remove", '#', class: "remove_fields"
-      %h4 2. #{link_to_add_book_list_fields "+ Add Book", f, :book_recommendations, "add-book-button"}
+      /%h4 2. 
+      #{link_to_add_book_list_fields "+ Add Book", f, :book_recommendations, "add-book-button"}
       /%h4 2. #{link_to_add_fields "+ Add Book", f, :book_recommendations, "add-book-button"}
       .actions.book-list-submit
         = f.submit 'Create Book List', class: "btn btn-primary"

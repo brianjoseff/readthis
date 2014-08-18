@@ -1,11 +1,13 @@
-.form-group.book-rec-form
-  %h4 #{@book_list.book_recommendations.count}
-  /=f.fields_for :book_recommendations do |br|
-  =f.fields_for :books do |b|
+
+.book-rec-form-container
+  %h4.counter counter
+  .form-group.book-rec-form
+    
+    =f.fields_for :books do |b|
+      .form-group
+        = b.label :title, class: "control-label"
+        = b.text_field :title, autofocus: true, type: "text", class: "form-control", placeholder: "On the Origin of Species"
     .form-group
-      = b.label :title, class: "control-label"
-      = b.text_field :title, autofocus: true, type: "text", class: "form-control", placeholder: "On the Origin of Species"
-  .form-group
-    = f.label :blurb, type: "text", class: "control-label"
-    = f.text_area :blurb, autofocus: true, type: "text", :rows => "5", class: "form-control", placeholder: "Charles Darwin's seminal work..."
-  = link_to "remove", '#', class: "remove_fields"
+      = f.label :blurb, type: "text", class: "control-label"
+      = f.text_area :blurb, autofocus: true, type: "text", :rows => "5", class: "form-control", placeholder: "Charles Darwin's seminal work..."
+    = link_to "remove", '#', class: "remove_fields"
