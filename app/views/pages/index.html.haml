@@ -1,9 +1,10 @@
 .row.text-center
   %h1 Featured Luminary
-  =link_to image_tag(@luminary.assets.empty?  ? '/assets/small.png': @luminary.assets.first.image.url(:small), :alt => @luminary.name), user_path(@luminary)
-  %h3=@luminary.name
-  -unless @luminarys_book_list.nil?
-    =@luminarys_book_list.category.name
-    -@luminarys_book_list.each do |book|
-      =link_to book.title
+  -unless @lumniary.nil?
+    =link_to image_tag(@luminary.assets.empty?  ? '/assets/small.png': @luminary.assets.first.image.url(:small), :alt => @luminary.name), user_path(@luminary)
+    %h3=@luminary.name
+    -unless @luminarys_book_list.nil?
+      =@luminarys_book_list.category.name
+      -@luminarys_book_list.each do |book|
+        =link_to book.title
   
