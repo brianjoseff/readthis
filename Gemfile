@@ -9,6 +9,7 @@ gem 'aws-sdk'
 
 gem 'pg'
 gem 'heroku'
+gem 'rails_12factor', group: :production
 
 gem "haml-rails"
 
