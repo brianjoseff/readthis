@@ -1,6 +1,16 @@
 ReadThis::Application.routes.draw do
   
+  resources :categories
+
+  resources :books
+
+  resources :book_recommendations
+
+  devise_for :users
   match '/about', to: "pages#about", via: :get
+  resources :users, :only => [:show, :edit, :update]
+  resources :book_lists
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

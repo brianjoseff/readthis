@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @book_recommendation.user_id
+%p
+  %b Book:
+  = @book_recommendation.book_id
+%p
+  %b Blurb:
+  = @book_recommendation.blurb
+
+= link_to 'Edit', edit_book_recommendation_path(@book_recommendation)
+\|
+= link_to 'Back', book_recommendations_path

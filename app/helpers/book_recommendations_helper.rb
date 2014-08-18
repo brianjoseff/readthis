@@ -1,0 +1,2 @@
+module BookRecommendationsHelper
+end

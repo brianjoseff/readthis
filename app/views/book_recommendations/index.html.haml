@@ -1,0 +1,23 @@
+%h1 Listing book_recommendations
+
+%table
+  %tr
+    %th User
+    %th Book
+    %th Blurb
+    %th
+    %th
+    %th
+
+  - @book_recommendations.each do |book_recommendation|
+    %tr
+      %td= book_recommendation.user_id
+      %td= book_recommendation.book_id
+      %td= book_recommendation.blurb
+      %td= link_to 'Show', book_recommendation
+      %td= link_to 'Edit', edit_book_recommendation_path(book_recommendation)
+      %td= link_to 'Destroy', book_recommendation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Book recommendation', new_book_recommendation_path
